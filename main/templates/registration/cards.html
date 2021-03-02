@@ -1,0 +1,20 @@
+{% extends 'registration/index.html' %}
+{% load crispy_forms_tags %}
+
+{% block main %}
+<div class="container">
+    <div class="row">
+        {% for object in data %}
+        <div class="col-4 p-2">
+            <div class="card" style="width:400px">
+                <img class="card-img-top" src="{{ object.product_photo.url }}" alt="Card image">
+                <div class="card-body">
+                    <h4 class="card-title">{{ object.product_name }}</h4>
+                    <p class="card-text">{{ object.price }} сом</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'registration/index.html' %}
+{% load crispy_forms_tags %}
+
+{% block main %}
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Update your account</h4>
+
+        <form method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ next }}">
+            
+            {{ form.username.label }}
+            {{ form.username }}
+            {{ form.first_name.label }}
+            {{ form.first_name }}
+            {{ form.last_name.label }}
+            {{ form.last_name }}
+            {{ form.email.label }}
+            {{ form.email }}
+            {{ form.password.label }}
+            {{ form.password }}
+            
+            <button type="submit" class="btn btn-primary btn-block">Update</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

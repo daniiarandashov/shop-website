@@ -1,0 +1,96 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+
+    <link rel="stylesheet" href="https://cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/brands.css">
+
+    <!-- Fonts -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Josefin+Sans:300,400,700">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+</head>
+
+<body>
+
+    <div class="container-fluid bg-fixed bg-white section-padding overlay"
+        style="background-image: url (static 'img/login-bg.jpg') ; " height="900px">
+        <div class="row justify-content-around">
+            <div class="section-content bg-white shadow py-5 text-center w-25">
+                <div class="heading-section">
+                    <h2>
+                        <span class="subheading">
+                            Регистрация
+                        </span>
+                    </h2>
+                </div>
+                <form method="POST" name="registration">
+                    {% csrf_token %}
+                    <div class="row justify-content-center">
+                        <div class="col-12 mw-100">
+                            <div class="form-group">
+                                <strong class="ml-1">{{ sign_in_form.username.label_tag }}</strong>
+                                <br>
+                                {{ sign_in_form.username }}
+                            </div>
+
+                            <div class="form-group">
+                                <strong class="ml-1">{{ sign_in_form.first_name.label_tag }}</strong>
+                                <br>
+                                {{ sign_in_form.first_name }}
+                            </div>
+
+                            <div class="form-group">
+                                <strong class="ml-1">{{ sign_in_form.last_name.label_tag }}</strong>
+                                <br>
+                                {{ sign_in_form.last_name }}
+                            </div>
+
+                            <div class="form-group">
+                                <strong class="ml-1">{{ sign_in_form.email.label_tag }}</strong>
+                                <br>
+                                {{ sign_in_form.email }}
+                            </div>
+
+                            <div class="form-group">
+                                <strong class="ml-1">{{ sign_in_form.password1.label_tag }}</strong>
+                                <br>
+                                {{ sign_in_form.password1 }}
+                            </div>
+
+                            <div class="form-group">
+                                <strong class="ml-1">{{ sign_in_form.password2.label_tag }}</strong>
+                                <br>
+                                {{ sign_in_form.password2 }}
+                            </div>
+
+                            <div class="form-group">
+                                {% if sign_in_form.errors %}
+                                {% for v in sign_in_form.errors.values %}
+                                <div class="alert alert-danger my-2">{{ v }}</div>
+                                {% endfor %}
+                                {% endif %}
+                            </div>
+
+                            <br>
+                            <button class="btn btn-primary btn-shadow btn-lg" type="submit"
+                                name="submit">Зарегистрироваться</button>
+
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
